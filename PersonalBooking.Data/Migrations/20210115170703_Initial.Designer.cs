@@ -2,12 +2,10 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using WebLesson1.Data;
+using PersonalBooking.Data.Data;
 
-namespace WebLesson1.Migrations
+namespace PersonalBooking.Data.Migrations
 {
     [DbContext(typeof(BookingDbContext))]
     [Migration("20210115170703_Initial")]
@@ -21,7 +19,7 @@ namespace WebLesson1.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.1");
 
-            modelBuilder.Entity("WebLesson1.Models.Category", b =>
+            modelBuilder.Entity("PersonalBooking.Data.Models.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -36,7 +34,7 @@ namespace WebLesson1.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("WebLesson1.Models.Operation", b =>
+            modelBuilder.Entity("PersonalBooking.Data.Models.Operation", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -62,14 +60,14 @@ namespace WebLesson1.Migrations
                     b.ToTable("Operations");
                 });
 
-            modelBuilder.Entity("WebLesson1.Models.Operation", b =>
+            modelBuilder.Entity("PersonalBooking.Data.Models.Operation", b =>
                 {
-                    b.HasOne("WebLesson1.Models.Category", null)
+                    b.HasOne("PersonalBooking.Data.Models.Category", null)
                         .WithMany("Operations")
                         .HasForeignKey("CategoryId");
                 });
 
-            modelBuilder.Entity("WebLesson1.Models.Category", b =>
+            modelBuilder.Entity("PersonalBooking.Data.Models.Category", b =>
                 {
                     b.Navigation("Operations");
                 });

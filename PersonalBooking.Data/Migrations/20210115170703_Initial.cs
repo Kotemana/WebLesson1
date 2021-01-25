@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace WebLesson1.Migrations
+namespace PersonalBooking.Data.Migrations
 {
     public partial class Initial : Migration
     {

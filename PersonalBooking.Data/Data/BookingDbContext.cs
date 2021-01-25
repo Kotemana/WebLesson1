@@ -1,14 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using WebLesson1.Models;
+using PersonalBooking.Data.Models;
 
-namespace WebLesson1.Data
+namespace PersonalBooking.Data.Data
 {
     public class BookingDbContext : DbContext
     {
         public DbSet<Category> Categories { get; set; }
         public DbSet<Operation> Operations { get; set; }
 
-        public BookingDbContext(DbContextOptions<BookingDbContext> options) : base(options) 
+        public BookingDbContext(DbContextOptions<BookingDbContext> options) : base(options)
         {
         }
 

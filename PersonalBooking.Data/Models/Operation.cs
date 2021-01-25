@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WebLesson1.Models
+namespace PersonalBooking.Data.Models
 {
     public class Operation : BaseEntity
     {

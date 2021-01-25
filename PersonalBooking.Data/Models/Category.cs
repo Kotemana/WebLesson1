@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace WebLesson1.Models
+namespace PersonalBooking.Data.Models
 {
     public class Category : BaseEntity
     {

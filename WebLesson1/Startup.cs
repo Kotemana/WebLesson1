@@ -1,10 +1,14 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using WebLesson1.Data;
+using PersonalBooking.Data.Data;
+using PersonalBooking.Logic.Automapper;
+using PersonalBooking.Logic.Interfaces;
+using PersonalBooking.Logic.Services;
 
 namespace WebLesson1
 {
@@ -22,6 +26,18 @@ namespace WebLesson1
         {
             services.AddDbContext<BookingDbContext>(options =>
        options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            var mapperConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new MappingProfile());
+            });
+
+            IMapper mapper = mapperConfig.CreateMapper();
+            services.AddSingleton(mapper);
+
+            services.AddTransient<ICategoryService, CategoryService>(); 
+            services.AddTransient<ICategoryFormatter, CategoryFormatter>();
+
             services.AddControllers();
         }
 
